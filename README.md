@@ -10,6 +10,7 @@ Credit aplikasi full to [Gozargah Marzban](https://github.com/Gozargah), saya ha
 - [hamid-gh98](https://github.com/hamid-gh98)
 - [MuhammadAshouri](https://github.com/MuhammadAshouri/marzban-templates)
 - [Edy](https://github.com/edikurexe)
+- [erwinproject](https://github.com/erwinproject)
 
 # List Protocol yang support
 - VLess
@@ -73,8 +74,14 @@ Pastikan SSL/TLS Setting pada cloudflare sudah di set menjadi full
 Lalu pada tab **Network** pastikan gRPC dan WebSocket sudah ON 
 ![image](https://github.com/GawrAme/MarLing/assets/97426017/65d9b413-fda4-478a-99a5-b33d8e5fec3d)
 
-
-
+# SSL Renew
+```html
+systemctl stop nginx
+curl https://get.acme.sh | sh -s email=ainesiaproject@gmail.com
+/root/.acme.sh/acme.sh --server letsencrypt --register-account -m ainesiaproject@gmail.com --issue -d biznet-id.vpnet.my.id --standalone -k ec-256
+~/.acme.sh/acme.sh --installcert -d biznet-id.vpnet.my.id --fullchainpath /var/lib/marzban/xray.crt --keypath /var/lib/marzban/xray.key --ecc
+systemctl start nginx
+ ```
 # Setting Host Marzban
  
  Saat masuk ke panel, setting host di menu kanan atas <br>
